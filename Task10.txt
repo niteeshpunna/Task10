@@ -1,0 +1,342 @@
+1. Create a class called "Person" with attributes "name" and "age". Also create a Constructor and getter methods for the attributes.
+
+package guviprograms;
+public class Person {
+    private String name; //the constructor Person takes in the parameters name and age
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+	//The getter methods getName and getAge are used to access the values of the attributes outside the class.
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+}
+
+public static void main(String args[]){
+
+			//create an object to the Person class
+		Person person1 = new Person("Niteesh", 27);
+			//access Person class attributes using the getter methods 
+		System.out.println(person1.getName()); // Output: Niteesh
+		System.out.println(person1.getAge()); // Output: 27
+}
+
+---------------------------------------------------------------------------------------------------------------------
+
+2. From the below image, Create an implementation for a java class named Employee that represents an employee with
+attributes including ID, name, and salary. The class includes a method called raiseSalary(percent), which
+updates the salary by a specified percentage. 
+
+public class Employee {
+							// the Employee class has private instance variables id, name, and salary
+    private int id;
+    private String name;
+    private double salary;
+							// The constructor Employee takes the parameters id, name, 
+							//and salary and initializes the corresponding attributes.
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+	
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+							//a new method called raiseSalary is added to the Employee class. 
+							//This method takes a percent parameter, 
+							//calculates the raise amount by multiplying the current salary with the percentage, 
+							//and then updates the salary by adding the raise amount to the current salary.//
+	public void raiseSalary(double percent) {
+        double raiseAmount = salary * percent / 100;
+        salary += raiseAmount;
+    }
+	
+	Employee employee = new Employee(1, "John Doe", 5000.0);
+		System.out.println("Original Salary: " + employee.getSalary());
+		
+		//the raiseSalary method is called with a percent value of 10, which increases the employee's salary by 10%. 
+		
+		employee.raiseSalary(10); 
+		System.out.println("Updated Salary: " + employee.getSalary());
+}
+
+---------------------------------------------------------------------------------------------------------------------
+
+3. Create a class circle class with radius as data member. Create two constructors (no argument,
+and two arguments) and a method to calculate Circumference.
+
+package task10;
+
+public class problem3 {
+	public static class Circle {
+		// the Circle class has a private instance variable radius to store the radius of the circle
+	    private double radius;
+	    
+	    //no-argument constructor that sets the radius to 0.0
+	    public Circle() {
+	    this.radius = radius;
+	    }
+
+	    //a two-argument constructor that takes a radius value as an input and assigns it to the instance variable.
+	    public Circle(double radius) {
+	        this.radius = radius;
+	    }
+	    
+	    //The class also includes a setter method setRadius and a getter method getRadius 
+	    //to modify and retrieve the value of the radius, respectively.
+	    public void setRadius(double radius) {
+	        this.radius = radius;
+	    }
+	    
+	    public double getRadius() {
+	        return radius;
+	    }
+
+	    	//The calculateCircumference method calculates and returns the circumference of the circle
+	    public double calculateCircumference() {
+	        return 2 * Math.PI * radius;
+	    }
+	}
+	public static void main(String[] args) {
+	    Circle circle1 = new Circle(); // No-argument constructor
+	    circle1.setRadius(5.0);
+	    System.out.println("Circle 1 Radius: " + circle1.getRadius());
+	    System.out.println("Circle 1 Circumference: " + circle1.calculateCircumference());
+
+	    Circle circle2 = new Circle(3.0); // Two-argument constructor
+	    System.out.println("Circle 2 Radius: " + circle2.getRadius());
+	    System.out.println("Circle 2 Circumference: " + circle2.calculateCircumference());
+ }
+}
+Output:
+Circle 1 Radius: 5.0
+Circle 1 Circumference: 31.41592653589793
+Circle 2 Radius: 3.0
+Circle 2 Circumference: 18.84955592153876
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+4. Create a class Account class with balance as data member. Create two constructors (no argumernt, and twO arguments)
+and methods to withdraw and deposit balance.
+
+package task10;
+
+public class Account {
+	
+	private double balance ;
+	
+	 	public Account() {
+	        balance = balance;
+	    }
+		
+	 	public Account(double initialBalance) {
+	 		balance=initialBalance;
+		}
+	 	public void setBalance(double newBalance) {
+	 		balance = newBalance;
+	 	}
+	 	
+	 	public double getBalance() {
+	 		return balance;
+	 	}
+	 	
+	 	// he deposit method takes an amount parameter and adds it to the current balance
+	 	public void deposit(double amount) {
+	 		balance= balance+ amount;
+	 	}
+	 	
+	 	//withdraw method checks if the requested amount is less than or equal to the balance. 
+	 	//If so, it subtracts the amount from the balance. Otherwise, it prints an error message indicating insufficient balance.
+	 	public void withdraw(double amount) {
+	 		if (amount <= balance) {
+	            balance = balance - amount;
+	        } else {
+	            System.out.println("Insufficient balance!");
+	        }
+	 	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Account account = new Account(); // No-argument constructor
+		System.out.println("Current Balance: " + account.getBalance());
+
+		account.deposit(1000.0);
+		System.out.println("Balance after deposit: " + account.getBalance());
+
+		account.withdraw(300.0);
+		System.out.println("Balance after withdrawal: " + account.getBalance());
+	}
+}
+
+Output:
+Current Balance: 0.0
+Balance after deposit: 1000.0
+Balance after withdrawal: 700.0
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+5. Create a Tea class in Java that includes the following methods: 
+a)prepareTea() - a method that prepares a basic tea with hot water and tea leaves.
+b)addMilk() - a method that adds milk to the basic tea.
+c)addSugar() - a method that adds sugar to the basic tea.
+
+package task10;
+
+public class TeaClass {
+	public static class Tea {
+	    
+	    public void prepareTea() {
+
+	            System.out.println("Preparing tea with hot water and tea leaves.");
+	    	}
+	    // The addMilk() and addSugar() methods check the state of the tea and add milk or sugar 
+	    public void addMilk() {
+	        
+	            System.out.println("Adding milk to the tea.");
+	     	}
+	    
+	    public void addSugar() {
+	    	
+	        System.out.println("Adding sugar to the tea.");
+	       }
+	    public static void main(String[] args) {
+	        Tea tea = new Tea();
+	        
+	        tea.prepareTea(); // Prepare the tea
+	        tea.addMilk(); // Add milk to the tea
+	        tea.addSugar(); // Add sugar to the tea
+	    }
+	}
+}
+Output:
+Preparing tea with hot water and tea leaves.
+Adding milk to the tea.
+Adding sugar to the tea.
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+6. Create three subclasses of the Tea class: BlackTea, GreenTea, and HerbalTea., Each subclass
+should override the prepareTea() method to prepare the specific type of tea (black tea, green tea, or
+herbal tea) with appropriate ingredients and brewing times.
+
+package task10;
+
+public class TeaClassOverrides {
+	
+	public static class BlackTea {
+	    
+	    public void prepareTea() {
+	            System.out.println("Preparing black tea with hot water and black tea leaves.");
+	         }
+	    }
+	
+	public static class GreenTea {
+	    
+	    public void prepareTea() {
+	        System.out.println("Preparing green tea with hot water and green tea leaves.");
+	     }
+	}
+
+	public static class HerbalTea {
+	    
+	    public void prepareTea() {
+	        System.out.println("Preparing herbal tea with hot water and herbal tea leaves.");
+	     }
+	}
+	public static void main(String[] args) {
+        
+        BlackTea blackTea = new BlackTea();
+        blackTea.prepareTea(); // Prepare black tea
+        
+        GreenTea greenTea = new GreenTea();
+        greenTea.prepareTea(); // Prepare green tea
+        
+        HerbalTea herbalTea = new HerbalTea();
+        herbalTea.prepareTea(); // Prepare herbal tea
+	}
+}
+
+Output:
+Preparing black tea with hot water and black tea leaves.
+Preparing green tea with hot water and green tea leaves.
+Preparing herbal tea with hot water and herbal tea leaves.
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+7. Implement polymorphism in your program by creating an array of Tea objects that includes
+instances of the Tea class and its subclasses.
+
+class Tea {
+    private String name;
+    public Tea(String name) {
+        this.name = name;
+    }
+    public void prepare() {
+        System.out.println("Preparing " + name + " tea.");
+    }
+    public void serve() {
+        System.out.println("Serving " + name + " tea.");
+    }
+}
+class BlackTea extends Tea {
+    public BlackTea(String name) {
+        super(name);
+    }
+    @Override
+    public void prepare() {
+        System.out.println("Preparing " + getName() + " black tea.");
+    }
+}
+class GreenTea extends Tea {
+    public GreenTea(String name) {
+        super(name);
+    }
+    @Override
+    public void prepare() {
+        System.out.println("Preparing " + getName() + " green tea.");
+    }
+}
+class HerbalTea extends Tea {
+    public HerbalTea(String name) {
+        super(name);
+    }
+    @Override
+    public void prepare() {
+        System.out.println("Preparing " + getName() + " herbal tea.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Tea[] teas = {
+                new BlackTea("Earl Grey"),
+                new GreenTea("Matcha"),
+                new HerbalTea("Chamomile"),
+                new Tea("English Breakfast") // Tea class instance
+        }
+
+        for (Tea tea : teas) {
+            tea.prepare();
+            tea.serve();
+            System.out.println();
+        }
+    }
+}
